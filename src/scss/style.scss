@@ -1,0 +1,58 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'blocks/nav-bar.scss';
+@import 'blocks/content-header.scss';
+@import 'blocks/promo.scss';
+@import 'blocks/ctrl-buttons.scss';
+@import 'blocks/catalog.scss';
+@import 'blocks/footer.scss';
+@import 'blocks/modal.scss';
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/OpenSans-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/OpenSans-SemiBold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open sans', sans-serif;
+    background-color: $wh;
+    color: $f-black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    @include font();
+}
+
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1318px;
+    padding: 32px 90px 0 32px;
+    flex: 1 0 auto;
+    flex-grow: 1;
+}

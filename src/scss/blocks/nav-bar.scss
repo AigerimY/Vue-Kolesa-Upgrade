@@ -1,0 +1,55 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.page-navigation {
+    width: 215px;
+    padding-right: 64px;
+
+    &__logo {
+        width: 215px;
+        height: 35px;
+    }
+
+    &__list {
+        margin: 24px 0 0 0;
+    }
+}
+
+.nav-list {
+    padding: 0;
+    list-style-type: none;
+
+    &__item a {
+        display: flex;
+        align-items: center;
+        width: 215px;
+        height: 48px;
+        text-decoration: none;
+        color: $f-black;
+
+        @include font(16px, 24px, 400);
+
+        &:hover {
+            color: $f-blue;
+        }
+
+        &:active {
+            color: #2063aa;
+        }
+    }
+
+    &__item--current a {
+        font-weight: 600;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            border-radius: 10px;
+            border: 2px solid $f-blue;
+            background-color: $f-blue;
+            height: 32px;
+            left: -12px;
+        }
+    }
+}
