@@ -246,21 +246,22 @@
                     <h2 class="visually-hidden">Каталог товаров</h2>
                     <div>
                         <ul class="products-list catalog__list js-products-list">
-                            <li class="products-list__item">
+                            <li class="products-list__item"
+                            v-for="item in clothes" :key="item.id">
                                 <div class="item-photo">
                                     <img class="js-card-img"
-                                        src="./img/product-tshirt.jpg"
+                                        v-bind:src="item.img"
                                         width="330" height="330"
                                         alt="Фото футболки 'Эволюционируй или сдохни'">
-                                    <span class="badge js-badge">new</span>
+                                    <span v-if="item.isNew" class="badge js-badge">new</span>
                                 </div>
                                 <div class="item-info">
                                     <span class="item-info__points js-item-info__points">
-                                        220 баллов</span>
+                                        {{ item.price }} баллов</span>
                                     <p class="item-info__title js-item-info__title">
-                                        Футболка "Эволюционируй или сдохни"</p>
+                                        {{ item.title }}</p>
                                     <span class="item-info__sizes js-item-info__sizes">
-                                        Размеры S/M/L </span>
+                                        Размеры {{ item.sizes }} </span>
                                 </div>
                                 <button class="button products-list__button" type="button">
                                     Заказать
@@ -315,6 +316,23 @@
 
 <script>
 
+const img1 = require('./img/product-tshirt.jpg');
+const img2 = require('./img/product.jpg');
+const img3 = require('./img/beige-sweatshirt-min.jpg');
+const img4 = require('./img/beige-sweatshirt.jpg');
+const img5 = require('./img/black-sweatshirt.jpg');
+const img6 = require('./img/gray-sweatshirt.jpg');
+const img7 = require('./img/gray-sweatshirt-min.jpg');
+
+const img8 = require('./img/bottle.jpg');
+const img9 = require('./img/bottle-min.jpg');
+const img10 = require('./img/socks.jpg');
+const img11 = require('./img/socks-min.jpg');
+const img12 = require('./img/gray-backpack.jpg');
+const img13 = require('./img/gray-backpack-min.jpg');
+const img14 = require('./img/blue-backpack.jpg');
+const img15 = require('./img/blue-backpack-min.jpg');
+
 export default {
   name: 'App',
   data() {
@@ -325,7 +343,7 @@ export default {
           title: 'Футболка "Эволюционируй или сдохни"',
           price: 220,
           isNew: false,
-          img: './img/product-tshirt.jpg',
+          img: img1,
           sizes: 'S/M/L',
           details: 'Брендированная ыутболка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%',
         },
@@ -334,7 +352,7 @@ export default {
           title: 'Детский свитшот QR, чёрный',
           price: 320,
           isNew: true,
-          img: './img/product.jpg',
+          img: img2,
           sizes: 'S/M/L',
           details: 'Стильный свитшот для ребёнка сотрудника компании',
         },
@@ -343,7 +361,7 @@ export default {
           title: 'Свитшот оверсайз бежевый',
           price: 520,
           isNew: false,
-          img: './img/beige-sweatshirt.jpg',
+          img: img4,
           sizes: 'S/M/L',
           details: 'Брендированный свитшот от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%',
         },
@@ -352,7 +370,7 @@ export default {
           title: 'Свитшот оверсайз бежевый, без логотипа',
           price: 450,
           isNew: false,
-          img: './img/beige-sweatshirt-min.jpg',
+          img: img3,
           sizes: 'S/M/L',
           details: 'Минималистичный свитшот. Материал: Хлопок 80%, Вискоза 20%',
         },
@@ -361,7 +379,7 @@ export default {
           title: 'Свитшот оверсайз чёрный',
           price: 720,
           isNew: true,
-          img: './img/black-sweatshirt.jpg',
+          img: img5,
           sizes: 'S/M/L',
           details: 'Брендированный свитшот от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%',
         },
@@ -370,7 +388,7 @@ export default {
           title: 'Свитшот оверсайз серый',
           price: 520,
           isNew: false,
-          img: './img/gray-sweatshirt.jpg',
+          img: img6,
           sizes: 'S/M/L',
           details: 'Брендированный свитшот от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%',
         },
@@ -379,7 +397,7 @@ export default {
           title: 'Свитшот оверсайз серый, без логотипа',
           price: 450,
           isNew: false,
-          img: './img/gray-sweatshirt-min.jpg',
+          img: img7,
           sizes: 'S/M/L',
           details: 'Минималистичный свитшот. Материал: Хлопок 80%, Вискоза 20%',
         },
@@ -390,7 +408,7 @@ export default {
           title: 'Бутылка для воды',
           price: 100,
           isNew: true,
-          img: './img/bottle.jpg',
+          img: img8,
           sizes: '1л/1.5л',
         },
         {
@@ -398,7 +416,7 @@ export default {
           title: 'Бутылка для воды обычная',
           price: 80,
           isNew: false,
-          img: './img/bottle-min.jpg',
+          img: img9,
           sizes: '1л/1.5л',
         },
         {
@@ -406,7 +424,7 @@ export default {
           title: 'Носки с сердечками',
           price: 120,
           isNew: true,
-          img: './img/socks.jpg',
+          img: img10,
           sizes: '35-42',
           details: 'Мимимишные носки с сердечками и логотипом Kolesa Teams',
         },
@@ -415,7 +433,7 @@ export default {
           title: 'Носки обычные',
           price: 50,
           isNew: false,
-          img: './img/socks-min.jpg',
+          img: img11,
           sizes: '35-42',
         },
         {
@@ -423,7 +441,7 @@ export default {
           title: 'Рюкзак серый',
           price: 550,
           isNew: false,
-          img: './img/gray-backpack.jpg',
+          img: img12,
           sizes: '30см на 41см',
         },
         {
@@ -431,7 +449,7 @@ export default {
           title: 'Рюкзак серый минималистичный',
           price: 550,
           isNew: false,
-          img: './img/gray-backpack-min.jpg',
+          img: img13,
           sizes: '30см на 41см',
         },
         {
@@ -439,7 +457,7 @@ export default {
           title: 'Рюкзак синий',
           price: 500,
           isNew: false,
-          img: './img/blue-backpack.jpg',
+          img: img14,
           sizes: '30см на 41см',
         },
         {
@@ -447,7 +465,7 @@ export default {
           title: 'Рюкзак синий минималистичный',
           price: 560,
           isNew: false,
-          img: './img/blue-backpack-min.jpg',
+          img: img15,
           sizes: '30см на 41см',
         },
       ],
