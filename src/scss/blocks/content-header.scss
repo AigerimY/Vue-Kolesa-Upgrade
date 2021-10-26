@@ -1,0 +1,71 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.content {
+    width: 100%;
+}
+
+.content__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.search-form {
+    position: relative;
+
+    input {
+        width: 244px;
+        background-color: #f2f2f3;
+        border-radius: 8px;
+        border: none;
+        color: $f-gray;
+        padding: 8px 8px 8px 56px;
+
+        @include font(18px, 28px);
+
+        &::placeholder {
+            color: $f-gray;
+        }
+    }
+
+    button {
+        position: absolute;
+        top: 14px;
+        left: 19px;
+        background-image: url('./img/icon-search.svg');
+        background-color: #f2f2f3;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 17px;
+        height: 17px;
+        border: none;
+
+        @include font(0,0);
+    }
+}
+
+.user {
+    display: flex;
+    cursor: pointer;
+
+    &:hover {
+        .user__name {
+            color: $f-red;
+        }
+    }
+
+    img {
+        border-radius: 50%;
+        margin-right: 16px;
+    }
+
+    .user__name {
+        font-weight: 600;
+        color: $f-blue;
+    }
+
+    .user__points {
+        @include font(13px, 20px);
+    }
+}

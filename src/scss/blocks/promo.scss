@@ -1,0 +1,19 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.promo__baner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1038px;
+    height: 335px;
+    background-color: #e9f2fb;
+    margin: 24px 0;
+    border-radius: 8px;
+
+    p {
+        @include font(28px, 36px, 600);
+
+        color: $f-blue;
+    }
+}
