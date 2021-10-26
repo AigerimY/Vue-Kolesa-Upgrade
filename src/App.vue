@@ -210,37 +210,9 @@
                             </li>
                         </ul>
                     </div>
-                    <form class="form" action="" method="POST">
-                        <fieldset class="form-block form__fieldset">
-                            <ul>
-                                <li class="form-block__radios">
-                                    <input class="js-all"
-                                        type="radio"
-                                        name="item"
-                                        id="item1-1"
-                                        checked>
-                                    <label class="form-block__radio" for="item1-1">
-                                        <span>Все товары</span>
-                                    </label>
-                                </li>
-                                <li class="form-block__radios">
-                                    <input class="js-clothes" type="radio" name="item" id="item2-1">
-                                    <label class="form-block__radio" for="item2-1">
-                                        <span>Одежда</span>
-                                    </label>
-                                </li>
-                                <li class="form-block__radios">
-                                    <input class="js-accessories"
-                                        type="radio"
-                                        name="item"
-                                        id="item3-1">
-                                    <label class="form-block__radio" for="item3-1">
-                                        <span>Аксессуары</span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </fieldset>
-                    </form>
+                    <switch-categories
+                    @choose="choosedCategory"
+                     />
                 </section>
                 <section class="catalog">
                     <h2 class="visually-hidden">Каталог товаров</h2>
@@ -316,6 +288,8 @@
 
 <script>
 
+import switchCategories from './components/switchCategories.vue';
+
 const img1 = require('./img/product-tshirt.jpg');
 const img2 = require('./img/product.jpg');
 const img3 = require('./img/beige-sweatshirt-min.jpg');
@@ -335,8 +309,12 @@ const img15 = require('./img/blue-backpack-min.jpg');
 
 export default {
   name: 'App',
+  components: {
+    switchCategories,
+  },
   data() {
     return {
+      selected: '',
       clothes: [
         {
           id: 1,
@@ -470,6 +448,12 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    choosedCategory(selectedCategory) {
+      this.selected = selectedCategory;
+      console.log(this.selected);
+    },
   },
 };
 </script>
