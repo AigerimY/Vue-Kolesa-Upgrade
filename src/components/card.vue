@@ -20,7 +20,10 @@
             Размеры {{ item.sizes }}
         </span>
     </div>
-    <button class="button products-list__button" type="button">
+    <button
+      class="button products-list__button"
+      type="button"
+      @click="sendModal(item)">
         Заказать
     </button>
 </li>
@@ -30,5 +33,10 @@
 export default {
   name: 'v-card',
   props: ['item'],
+  methods: {
+    sendModal(item) {
+      this.$emit('clickOn', item);
+    },
+  },
 };
 </script>
