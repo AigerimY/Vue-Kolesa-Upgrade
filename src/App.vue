@@ -218,27 +218,8 @@
                     <h2 class="visually-hidden">Каталог товаров</h2>
                     <div>
                         <ul class="products-list catalog__list js-products-list">
-                            <li class="products-list__item"
-                            v-for="item in clothes" :key="item.id">
-                                <div class="item-photo">
-                                    <img class="js-card-img"
-                                        v-bind:src="item.img"
-                                        width="330" height="330"
-                                        alt="Фото футболки 'Эволюционируй или сдохни'">
-                                    <span v-if="item.isNew" class="badge js-badge">new</span>
-                                </div>
-                                <div class="item-info">
-                                    <span class="item-info__points js-item-info__points">
-                                        {{ item.price }} баллов</span>
-                                    <p class="item-info__title js-item-info__title">
-                                        {{ item.title }}</p>
-                                    <span class="item-info__sizes js-item-info__sizes">
-                                        Размеры {{ item.sizes }} </span>
-                                </div>
-                                <button class="button products-list__button" type="button">
-                                    Заказать
-                                </button>
-                            </li>
+                          <card v-for="(item, index) in filtered"
+                           :key="index" :item="item" />
                         </ul>
                     </div>
                 </section>
@@ -289,6 +270,7 @@
 <script>
 
 import switchCategories from './components/switchCategories.vue';
+import card from './components/card.vue';
 
 const img1 = require('./img/product-tshirt.jpg');
 const img2 = require('./img/product.jpg');
@@ -311,10 +293,11 @@ export default {
   name: 'App',
   components: {
     switchCategories,
+    card,
   },
   data() {
     return {
-      selected: '',
+      selected: 'all',
       clothes: [
         {
           id: 1,
@@ -452,7 +435,20 @@ export default {
   methods: {
     choosedCategory(selectedCategory) {
       this.selected = selectedCategory;
-      console.log(this.selected);
+      this.clothes.sort((a, b) => b.isNew - a.isNew);
+      this.accessories.sort((a, b) => b.isNew - a.isNew);
+      return this.selected;
+    },
+  },
+  computed: {
+    filtered() {
+      if (this.selected === 'clothes') {
+        return this.clothes;
+      }
+      if (this.selected === 'accessories') {
+        return this.accessories;
+      }
+      return this.clothes.concat(this.accessories).sort((a, b) => b.isNew - a.isNew);
     },
   },
 };
