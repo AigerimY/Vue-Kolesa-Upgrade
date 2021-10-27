@@ -47,16 +47,7 @@
                 <section class="content__header">
                     <h2 class="visually-hidden">Данные пользователя</h2>
                     <search />
-                    <a class="user">
-                        <img
-                            src="./img/avatar.jpg"
-                            width="44" height="44"
-                            alt="Фото пользователя">
-                        <div>
-                            <span class="user__name">Мортиджан</span><br>
-                            <span class="user__points">300 баллов</span>
-                        </div>
-                    </a>
+                    <user />
                 </section>
                 <section class="promo">
                     <h2 class="visually-hidden">Промо акция</h2>
@@ -142,6 +133,7 @@ import switchCategories from './components/switchCategories.vue';
 import card from './components/card.vue';
 import modal from './components/modal.vue';
 import search from './components/search.vue';
+import user from './components/user.vue';
 
 const img1 = require('./img/product-tshirt.jpg');
 const img2 = require('./img/product.jpg');
@@ -167,6 +159,7 @@ export default {
     card,
     modal,
     search,
+    user,
   },
   data() {
     return {
