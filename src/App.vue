@@ -46,12 +46,7 @@
             <div class="content">
                 <section class="content__header">
                     <h2 class="visually-hidden">Данные пользователя</h2>
-                    <form class="search-form" action="" method="POST">
-                        <button type="button">Найти</button>
-                        <label>
-                            <input type="text" placeholder="Поиск">
-                        </label>
-                    </form>
+                    <search />
                     <a class="user">
                         <img
                             src="./img/avatar.jpg"
@@ -146,6 +141,7 @@
 import switchCategories from './components/switchCategories.vue';
 import card from './components/card.vue';
 import modal from './components/modal.vue';
+import search from './components/search.vue';
 
 const img1 = require('./img/product-tshirt.jpg');
 const img2 = require('./img/product.jpg');
@@ -170,6 +166,7 @@ export default {
     switchCategories,
     card,
     modal,
+    search,
   },
   data() {
     return {
