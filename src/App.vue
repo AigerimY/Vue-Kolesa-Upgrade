@@ -13,37 +13,7 @@
                         width="215" height="35"
                         alt="Логотип Kolesa Group">
                 </div>
-                <nav>
-                    <ul class="nav-list page-navigation__list">
-                        <li class="nav-list__item">
-                            <a href="#">Оргсхема</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a href="#">Kolesa Team</a>
-                        </li>
-                        <li class="nav-list__item nav-list__item--current">
-                            <a href="#">Kolesa Shop</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a href="#">Картина компании</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a href="#">Новости</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a href="#">Education</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a href="#">Guidelines</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a href="#">Библиотека</a>
-                        </li>
-                        <li class="nav-list__item">
-                            <a href="#">FAQ</a>
-                        </li>
-                    </ul>
-                </nav>
+              <navigation />
             </div>
             <div class="content">
                 <section class="content__header">
@@ -138,6 +108,7 @@ import card from './components/card.vue';
 import modal from './components/modal.vue';
 import search from './components/search.vue';
 import user from './components/user.vue';
+import navigation from './components/navigation.vue';
 
 const img1 = require('./img/product-tshirt.jpg');
 const img2 = require('./img/product.jpg');
@@ -164,6 +135,7 @@ export default {
     modal,
     search,
     user,
+    navigation,
   },
   data() {
     return {
