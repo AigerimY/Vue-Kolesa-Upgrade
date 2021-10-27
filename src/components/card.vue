@@ -4,7 +4,7 @@
         <img class="js-card-img"
             v-bind:src="item.img"
             width="330" height="330"
-            alt="Фото футболки 'Эволюционируй или сдохни'">
+            :alt="item.title">
         <span v-if="item.isNew" class="badge js-badge">
           new
         </span>

@@ -1,7 +1,9 @@
 <template>
     <div>
-      <modal v-if="open && close"
-      @clickClose="closeModal" :selectedCard="selectedCard" />
+      <modal
+        v-if="open && close"
+        @clickClose="closeModal"
+        :selectedCard="selectedCard" />
         <div class="container">
             <h1 class="visually-hidden">Магазин Kolesa Team</h1>
             <div class="page-navigation">
@@ -71,7 +73,7 @@
                         </ul>
                     </div>
                     <switch-categories
-                    @choose="choosedCategory"
+                      @choose="choosedCategory"
                      />
                 </section>
                 <section class="catalog">
@@ -79,7 +81,9 @@
                     <div>
                         <ul class="products-list catalog__list js-products-list">
                           <card v-for="(item, index) in filtered"
-                           :key="index" :item="item" @clickOn="openModal" />
+                            :key="index"
+                            :item="item"
+                            @clickOn="openModal" />
                         </ul>
                     </div>
                 </section>
