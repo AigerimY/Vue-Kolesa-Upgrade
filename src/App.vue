@@ -29,19 +29,7 @@
                 </section>
                 <section class="control-btns">
                     <h2 class="visually-hidden">Управляй своими покупками</h2>
-                    <div>
-                        <ul class="buttons-list control-btns__hot">
-                            <li class="buttons-list__item get-points">
-                                <a href="#">Получить баллы</a>
-                            </li>
-                            <li class="buttons-list__item how-to-get">
-                                <a href="#">Как получить баллы</a>
-                            </li>
-                            <li class="buttons-list__item gift-points">
-                                <a href="#">Подарить баллы</a>
-                            </li>
-                        </ul>
-                    </div>
+                    <hotButtons />
                     <switch-categories
                       @choose="choosedCategory"
                      />
@@ -109,6 +97,7 @@ import modal from './components/modal.vue';
 import search from './components/search.vue';
 import user from './components/user.vue';
 import navigation from './components/navigation.vue';
+import hotButtons from './components/hot-buttons.vue';
 
 const img1 = require('./img/product-tshirt.jpg');
 const img2 = require('./img/product.jpg');
@@ -136,6 +125,7 @@ export default {
     search,
     user,
     navigation,
+    hotButtons,
   },
   data() {
     return {
