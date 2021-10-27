@@ -22,7 +22,6 @@
 <script>
 export default {
   name: 'v-switchCategories',
-  props: {},
   data() {
     return {
       categories: [
@@ -51,7 +50,6 @@ export default {
       selectedCategory: 'all',
     };
   },
-  computed: {},
   methods: {
     toggleCat(selectedCategory) {
       this.$emit('choose', selectedCategory);
