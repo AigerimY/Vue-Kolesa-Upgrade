@@ -2,7 +2,7 @@
   <li class="products-list__item">
     <div class="item-photo">
         <img class="js-card-img"
-            v-bind:src="item.img"
+            v-bind:src="item.mainImage"
             width="330" height="330"
             :alt="item.title">
         <span v-if="item.isNew" class="badge js-badge">
@@ -16,9 +16,15 @@
         <p class="item-info__title js-item-info__title">
             {{ item.title }}
         </p>
-        <span class="item-info__sizes js-item-info__sizes">
-            Размеры {{ item.sizes }}
-        </span>
+        <div v-if="item.sizes">
+          <span v-if="item.sizes.length > 0" class="item-info__sizes js-item-info__sizes">
+              Размеры
+          </span>
+          <span v-for="(element, i) in item.sizes"
+            :key="i">
+              {{ element }}
+          </span>
+        </div>
     </div>
     <button
       class="button products-list__button"
