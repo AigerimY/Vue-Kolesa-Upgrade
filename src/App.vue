@@ -61,6 +61,7 @@ import user from './components/user.vue';
 import navigation from './components/navigation.vue';
 import hotButtons from './components/hot-buttons.vue';
 import pageFooter from './components/footer.vue';
+import axios from './axios';
 
 const img1 = require('./img/product-tshirt.jpg');
 const img2 = require('./img/product.jpg');
@@ -263,6 +264,16 @@ export default {
       }
       return false;
     },
+  },
+  mounted() {
+    axios.get('templates/-_RLsEGjof6i/data')
+      .then((response) => {
+        this.clothes = response.data;
+      });
+    axios.get('templates/q3OPxRyEcPvP/data')
+      .then((response) => {
+        this.accessories = response.data;
+      });
   },
 };
 </script>
