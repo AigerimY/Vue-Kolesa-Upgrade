@@ -47,45 +47,7 @@
                 </section>
             </div>
         </div>
-        <footer class="page-footer">
-            <div class="footer-container">
-                <div class="social">
-                    <span class="copyright">© Kolesa Group</span>
-                    <ul class="social-list">
-                        <li class="social-list__item">
-                            <a href="#">
-                                <img
-                                    src="./img/icon-insta.svg"
-                                    width="18"
-                                    height="18">
-                            </a>
-                        </li>
-                        <li class="social-list__item">
-                            <a href="#">
-                                <img
-                                    src="./img/icon-youtube.svg"
-                                    width="18"
-                                    height="13">
-                            </a>
-                        </li>
-                        <li class="social-list__item">
-                            <a href="#">
-                                <img
-                                    src="./img/icon-vk.svg"
-                                    width="18"
-                                    height="11">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="feedback">
-                    <p class="feedback__text">
-                    Есть идеи что улучшить?<br>Не знаешь, с кем решить проблему?
-                    </p>
-                    <a class="feedback__button button" href="#">Написать</a>
-                </div>
-            </div>
-        </footer>
+        <pageFooter />
     </div>
 </template>
 
@@ -98,6 +60,7 @@ import search from './components/search.vue';
 import user from './components/user.vue';
 import navigation from './components/navigation.vue';
 import hotButtons from './components/hot-buttons.vue';
+import pageFooter from './components/footer.vue';
 
 const img1 = require('./img/product-tshirt.jpg');
 const img2 = require('./img/product.jpg');
@@ -126,6 +89,7 @@ export default {
     user,
     navigation,
     hotButtons,
+    pageFooter,
   },
   data() {
     return {
