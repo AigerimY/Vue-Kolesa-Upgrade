@@ -11,29 +11,18 @@
                       width="330"
                       height="330"
                       alt="Толстовка Kolesa Team"
-                      src="../img/product.jpg">
-                  <div class="gallery">
+                      :src="selectedCard.mainImage">
+                  <div v-if="selectedCard.images.length > 0" class="gallery">
                       <ul>
-                          <li class="gallery__item">
-                              <img src="../img/previewImage1.jpg"
-                                  width="50"
-                                  height="50"
-                                  alt="Бежевая толстовка">
-                          </li>
-                          <li class="gallery__item gallery__item--preview">
-                          <img
-                              src="../img/previewImage2.jpg"
-                              width="50"
-                              height="50"
-                              alt="Бежевая толстовка">
-                          </li>
-                          <li class="gallery__item">
-                              <img
-                                  src="../img/previewImage3.jpg"
-                                  width="50"
-                                  height="50"
-                                  alt="Бежевая толстовка">
-                          </li>
+                        <li
+                          v-for="(image, index) in selectedCard.images"
+                          :key="index"
+                          class="gallery__item">
+                            <img :src="image"
+                                width="50"
+                                height="50"
+                                :alt="selectedCard.title + ' ' + `${index+1}`">
+                        </li>
                       </ul>
                   </div>
               </div>
@@ -60,69 +49,44 @@
                       </div>
                   </div>
                   <form class="modal__form form" action="" method="POST">
-                      <fieldset class="js-colors form-block form__fieldset">
+                      <fieldset
+                        class="js-colors form-block form__fieldset"
+                        v-if="selectedCard.colors">
                           <span>Цвета:</span>
                           <ul>
-                              <li class="form-block__color">
-                                  <input type="radio" name="color" id="color1">
-                                  <label class="form-block__radio" for="color1">
-                                      <img class="color-preview"
-                                          src="../img/color1.jpg"
-                                          width="23"
-                                          height="24">
-                                      <span>Синий</span>
-                                  </label>
-                              </li>
-                              <li class="form-block__color">
-                                  <input type="radio" name="color" id="color2">
-                                  <label class="form-block__radio" for="color2">
-                                      <img class="color-preview"
-                                          src="../img/color2.jpg"
-                                          width="23"
-                                          height="24">
-                                      <span>Бежевый</span>
-                                  </label>
-                              </li>
-                              <li class="form-block__color">
-                                  <input type="radio" name="color" id="color3">
-                                  <label class="form-block__radio" for="color3">
-                                      <img class="color-preview"
-                                          src="../img/color3.jpg"
-                                          width="23"
-                                          height="24">
-                                      <span>Серый</span>
+                              <li
+                                v-for="(color, index) in selectedCard.colors"
+                                :key="index"
+                                class="form-block__color">
+                                  <input type="radio" name="color" :id="`color${index}`">
+                                  <label class="form-block__radio" :for="`color${index}`">
+                                    <div class="color color-preview"
+                                      :style="{ background: color.color }"></div>
+                                    <span>{{ color.label }}</span>
                                   </label>
                               </li>
                           </ul>
                       </fieldset>
-                      <fieldset class="form-block form__fieldset">
-                          <span>Размер:</span>
-                          <ul>
-                              <li>
-                                  <input type="radio" name="size" id="size1">
-                                  <label class="form-block__radio" for="size1">
-                                      <span>S</span>
-                                  </label>
-                              </li>
-                              <li>
-                                  <input type="radio" name="size" id="size2">
-                                  <label class="form-block__radio" for="size2">
-                                      <span>M</span>
-                                  </label>
-                              </li>
-                              <li>
-                                  <input type="radio" name="size" id="size3">
-                                  <label class="form-block__radio" for="size3">
-                                      <span>L</span>
-                                  </label>
-                              </li>
-                          </ul>
+                      <fieldset
+                      v-if="selectedCard.sizes"
+                      class="form-block form__fieldset">
+                        <span v-if="selectedCard.sizes.lenght > 0">Размер:</span>
+                        <ul>
+                            <li v-for="(element, i) in selectedCard.sizes"
+                              :key="i">
+                                <input type="radio" name="size" :id="`size${i}`">
+                                <label class="form-block__radio" :for="`size${i}`">
+                                    <span>{{ element }}</span>
+                                </label>
+                            </li>
+                        </ul>
                       </fieldset>
                   </form>
-                  <div class="product-info__description js-product-info__description">
+                  <div
+                    v-if="selectedCard.description"
+                    class="product-info__description js-product-info__description">
                       <h4>Детали:</h4>
-                      <p class="js-description">Брендированная толстовка от Qazaq Republic.
-                      Материал: Хлопок 80%, Вискоза 20%</p>
+                      <p class="js-description">{{ selectedCard.description }}</p>
                   </div>
                   <div class="product-info__description js-product-info__description">
                       <h4>Как выбрать размер:</h4>
@@ -151,3 +115,10 @@ export default {
   },
 };
 </script>
+
+<style>
+  .color {
+    width: 23px;
+    height: 24px;
+  }
+</style>
