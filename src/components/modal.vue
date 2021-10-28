@@ -34,12 +34,16 @@
                           <p class="product-info__cost js-product-info__cost">
                             {{ selectedCard.price }} баллов
                           </p>
-                          <a class="product-info__button button" href="#">Заказать</a>
+                          <button
+                            @click="solvePoints()"
+                            class="product-info__button button">
+                              Заказать
+                          </button>
                       </div>
                       <div class="product-info__balance">
                           <div>
                               <span>Твой баланс:</span>
-                              <p>3 945 баллов</p>
+                              <p>{{ user.score}} баллов</p>
                           </div>
                           <img
                               src="../img/shoppingBags.png"
@@ -101,7 +105,7 @@
 <script>
 export default {
   name: 'v-modal',
-  props: ['selectedCard'],
+  props: ['selectedCard', 'user'],
   data() {
     return {
       close: true,
@@ -111,6 +115,13 @@ export default {
     sayCloseModal() {
       this.close = true;
       this.$emit('clickClose', this.close);
+    },
+    solvePoints() {
+      if (this.user.score >= this.selectedCard.price) {
+        this.user.score -= this.selectedCard.price;
+        return this.user.score;
+      }
+      return alert('У вас недостаточно средств');
     },
   },
 };

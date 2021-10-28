@@ -31,6 +31,7 @@ export default {
     axios.get('templates/7ZW3y5GAuIge/data')
       .then((response) => {
         this.user = response.data;
+        this.$emit('load', this.user);
       });
   },
 };

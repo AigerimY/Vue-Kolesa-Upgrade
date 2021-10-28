@@ -3,7 +3,8 @@
       <modal
         v-if="open && close"
         @clickClose="closeModal"
-        :selectedCard="selectedCard" />
+        :selectedCard="selectedCard"
+        :user="userData" />
         <div class="container">
             <h1 class="visually-hidden">Магазин Kolesa Team</h1>
             <div class="page-navigation">
@@ -19,7 +20,7 @@
                 <section class="content__header">
                     <h2 class="visually-hidden">Данные пользователя</h2>
                     <search />
-                    <user />
+                    <user @load="readUser" />
                 </section>
                 <section class="promo">
                     <h2 class="visually-hidden">Промо акция</h2>
@@ -96,6 +97,11 @@ export default {
     return {
       selected: 'all',
       close: false,
+      userData: {
+        name: '',
+        score: 0,
+        avatarUrl: '',
+      },
       clothes: [
         {
           id: 1,
@@ -246,6 +252,10 @@ export default {
     closeModal(close) {
       this.close = false;
       return close;
+    },
+    readUser(userData) {
+      this.userData = userData;
+      console.log(userData);
     },
   },
   computed: {
