@@ -27,6 +27,7 @@
       >
           Размеры
       </span>
+      <span v-else>Стандартный размер</span>
       <span
         v-for="(element, i) in item.sizes"
         :key="i"

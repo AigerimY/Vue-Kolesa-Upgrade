@@ -18,17 +18,18 @@
         margin-bottom: 24px;
         padding-bottom: 16px;
         margin-right: 1.3%;
-        height: 518px;
+        height: 470px;
         border-radius: 8px;
     }
 }
 
 .item-photo {
     position: relative;
+    width: 100%;
 
     img {
-        width: 100%;
-        height: 100%;
+        max-width: 287px;
+        max-height: 287px;
     }
 
     .badge {
@@ -92,4 +93,15 @@
 
 .products-list__button:active {
     background-color: #226cbb;
+}
+
+@media (min-width: 1440px) {
+    .item-photo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .products-list__item {
+        height: 518px;
+    }
 }
