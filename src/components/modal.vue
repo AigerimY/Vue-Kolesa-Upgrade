@@ -1,5 +1,6 @@
 <template>
   <div class="modal js-modal">
+    <div class="modal__back" @click="sayCloseModal"></div>
     <div class="modal__content">
       <button
         class="modal__close js-modal__close" type="button"
