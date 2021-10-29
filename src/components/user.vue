@@ -3,10 +3,11 @@
     <img
         :src="user.avatarUrl"
         width="44" height="44"
-        alt="Фото пользователя">
+        alt="Фото пользователя"
+      >
     <div>
-        <span class="user__name">{{ user.name }}</span><br>
-        <span class="user__points">{{ user.score }} баллов</span>
+      <span class="user__name">{{ user.name }}</span><br>
+      <span class="user__points">{{ user.score }} баллов</span>
     </div>
   </a>
 </template>

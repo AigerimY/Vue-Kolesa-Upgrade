@@ -5,8 +5,9 @@
         class="buttons-list__item"
         :class="link.class"
         v-for="link in links"
-        :key="link.class">
-          <a :href="link.href">{{ link.title }}</a>
+        :key="link.class"
+      >
+        <a :href="link.href">{{ link.title }}</a>
       </li>
     </ul>
   </div>

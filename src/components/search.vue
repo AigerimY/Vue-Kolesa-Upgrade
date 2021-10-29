@@ -2,7 +2,7 @@
   <form class="search-form" action="" method="POST">
     <button type="button">Найти</button>
     <label>
-        <input type="text" placeholder="Поиск">
+      <input type="text" placeholder="Поиск">
     </label>
   </form>
 </template>

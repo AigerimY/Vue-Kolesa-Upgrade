@@ -1,55 +1,57 @@
 <template>
-    <div>
-      <modal
-        v-if="open && close"
-        @click="closeModal"
-        :selected-card="selectedCard"
-        :user="userData" />
-        <div class="container">
-            <h1 class="visually-hidden">Магазин Kolesa Team</h1>
-            <div class="page-navigation">
-                <div class="page-navigation__logo">
-                    <img
-                        src="./img/logo.svg"
-                        width="215" height="35"
-                        alt="Логотип Kolesa Group">
-                </div>
-              <navigation />
-            </div>
-            <div class="content">
-                <section class="content__header">
-                    <h2 class="visually-hidden">Данные пользователя</h2>
-                    <search />
-                    <user @load="readUser" />
-                </section>
-                <section class="promo">
-                    <h2 class="visually-hidden">Промо акция</h2>
-                    <div class="promo__baner">
-                        <p>Здесь может быть ваша реклама :-)</p>
-                    </div>
-                </section>
-                <section class="control-btns">
-                    <h2 class="visually-hidden">Управляй своими покупками</h2>
-                    <hotButtons />
-                    <switch-categories
-                      @choose="choosenCategory"
-                     />
-                </section>
-                <section class="catalog">
-                    <h2 class="visually-hidden">Каталог товаров</h2>
-                    <div>
-                        <ul class="products-list catalog__list js-products-list">
-                          <card v-for="item in filtered"
-                            :key="item.id"
-                            :item="item"
-                            @click="openModal" />
-                        </ul>
-                    </div>
-                </section>
-            </div>
+  <div>
+    <modal
+      v-if="open && close"
+      @click="closeModal"
+      :selected-card="selectedCard"
+      :user="userData"
+    />
+    <div class="container">
+      <h1 class="visually-hidden">Магазин Kolesa Team</h1>
+      <div class="page-navigation">
+        <div class="page-navigation__logo">
+          <img
+            src="./img/logo.svg"
+            width="215" height="35"
+            alt="Логотип Kolesa Group"
+          >
         </div>
-        <pageFooter />
+        <navigation />
+      </div>
+      <div class="content">
+        <section class="content__header">
+          <h2 class="visually-hidden">Данные пользователя</h2>
+          <search />
+          <user @load="readUser" />
+        </section>
+        <section class="promo">
+          <h2 class="visually-hidden">Промо акция</h2>
+          <div class="promo__baner">
+            <p>Здесь может быть ваша реклама :-)</p>
+          </div>
+        </section>
+        <section class="control-btns">
+          <h2 class="visually-hidden">Управляй своими покупками</h2>
+          <hotButtons />
+          <switch-categories @choose="choosenCategory" />
+        </section>
+        <section class="catalog">
+          <h2 class="visually-hidden">Каталог товаров</h2>
+          <div>
+            <ul class="products-list catalog__list js-products-list">
+              <card
+                v-for="item in filtered"
+                :key="item.id"
+                :item="item"
+                @click="openModal"
+              />
+            </ul>
+          </div>
+        </section>
+      </div>
     </div>
+    <pageFooter />
+  </div>
 </template>
 
 <script>

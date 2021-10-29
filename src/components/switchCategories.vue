@@ -1,26 +1,28 @@
 <template>
   <form class="switchCategories form" action="" method="POST">
-      <fieldset class="form-block form__fieldset">
-          <ul>
-            <li
-              v-for="item in categories"
-              :key="item.categories"
-              class="form-block__radios">
-              <input
-                @change="toggleCat(selectedCategory)"
-                :class="item.className"
-                type="radio"
-                name="item"
-                v-model="selectedCategory"
-                :value="item.value"
-                :id="item.id"
-                :checked="item.checked">
-              <label class="form-block__radio" :for="item.id">
-                  <span>{{ item.title }}</span>
-              </label>
-            </li>
-          </ul>
-      </fieldset>
+    <fieldset class="form-block form__fieldset">
+      <ul>
+        <li
+          v-for="item in categories"
+          :key="item.categories"
+          class="form-block__radios"
+        >
+          <input
+            @change="toggleCat(selectedCategory)"
+            :class="item.className"
+            type="radio"
+            name="item"
+            v-model="selectedCategory"
+            :value="item.value"
+            :id="item.id"
+            :checked="item.checked"
+          >
+          <label class="form-block__radio" :for="item.id">
+              <span>{{ item.title }}</span>
+          </label>
+        </li>
+      </ul>
+    </fieldset>
   </form>
 </template>
 
