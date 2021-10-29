@@ -1,5 +1,5 @@
 <template>
-  <form class="switchCategories form" action="" method="POST">
+  <form class="form" action="" method="POST">
     <fieldset class="form-block form__fieldset">
       <ul>
         <li
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'v-switchCategories',
+  name: 'switchCategories',
   data() {
     return {
       categories: [

@@ -47,7 +47,7 @@
 
 <script>
 export default {
-  name: 'v-card',
+  name: 'card',
   props: {
     item: Object,
   },

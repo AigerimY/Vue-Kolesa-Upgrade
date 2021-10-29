@@ -123,7 +123,7 @@
 
 <script>
 export default {
-  name: 'v-modal',
+  name: 'modal',
   props: {
     selectedCard: Object,
     user: Object,

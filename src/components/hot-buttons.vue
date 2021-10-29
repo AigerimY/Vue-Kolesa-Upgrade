@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'v-hot-buttons',
+  name: 'hot-buttons',
   data() {
     return {
       links: [
