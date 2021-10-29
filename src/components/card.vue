@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     sendModal(item) {
-      this.$emit('clickOn', item);
+      this.$emit('click', item);
     },
   },
 };

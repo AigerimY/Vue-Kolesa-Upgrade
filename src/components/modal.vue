@@ -117,7 +117,7 @@ export default {
   methods: {
     sayCloseModal() {
       this.close = true;
-      this.$emit('clickClose', this.close);
+      this.$emit('click', this.close);
     },
     solvePoints() {
       if (this.user.score >= this.selectedCard.price) {

@@ -2,7 +2,7 @@
     <div>
       <modal
         v-if="open && close"
-        @clickClose="closeModal"
+        @click="closeModal"
         :selected-card="selectedCard"
         :user="userData" />
         <div class="container">
@@ -32,7 +32,7 @@
                     <h2 class="visually-hidden">Управляй своими покупками</h2>
                     <hotButtons />
                     <switch-categories
-                      @choose="choosedCategory"
+                      @choose="choosenCategory"
                      />
                 </section>
                 <section class="catalog">
@@ -42,7 +42,7 @@
                           <card v-for="item in filtered"
                             :key="item.id"
                             :item="item"
-                            @clickOn="openModal" />
+                            @click="openModal" />
                         </ul>
                     </div>
                 </section>
@@ -87,7 +87,7 @@ export default {
     };
   },
   methods: {
-    choosedCategory(selectedCategory) {
+    choosenCategory(selectedCategory) {
       this.selected = selectedCategory;
       this.clothes.sort((a, b) => b.isNew - a.isNew);
       this.accessories.sort((a, b) => b.isNew - a.isNew);
