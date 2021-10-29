@@ -2,8 +2,8 @@
   <nav>
     <ul class="nav-list page-navigation__list">
         <li
-          v-for="(link, index) in links"
-          :key="index"
+          v-for="link in links"
+          :key="link.title"
           class="nav-list__item">
             <a :href="link.href">{{ link.title }}</a>
         </li>

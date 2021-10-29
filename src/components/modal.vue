@@ -105,7 +105,10 @@
 <script>
 export default {
   name: 'v-modal',
-  props: ['selectedCard', 'user'],
+  props: {
+    selectedCard: Object,
+    user: Object,
+  },
   data() {
     return {
       close: true,

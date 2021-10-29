@@ -2,7 +2,7 @@
   <li class="products-list__item">
     <div class="item-photo">
         <img class="js-card-img"
-            v-bind:src="item.mainImage"
+            :src="item.mainImage"
             width="330" height="330"
             :alt="item.title">
         <span v-if="item.isNew" class="badge js-badge">
@@ -38,7 +38,9 @@
 <script>
 export default {
   name: 'v-card',
-  props: ['item'],
+  props: {
+    item: Object,
+  },
   methods: {
     sendModal(item) {
       this.$emit('clickOn', item);

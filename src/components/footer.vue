@@ -6,8 +6,8 @@
             <ul class="social-list">
                 <li
                 class="social-list__item"
-                v-for="(social, index) in links"
-                :key="index">
+                v-for="social in links"
+                :key="social.title">
                     <a :href="social.href">
                         <img
                             :src="social.img"

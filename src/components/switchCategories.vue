@@ -3,8 +3,8 @@
       <fieldset class="form-block form__fieldset">
           <ul>
             <li
-              v-for="(item, index) in categories"
-              :key="index"
+              v-for="item in categories"
+              :key="item.categories"
               class="form-block__radios">
               <input
                 @change="toggleCat(selectedCategory)"

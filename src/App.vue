@@ -3,7 +3,7 @@
       <modal
         v-if="open && close"
         @clickClose="closeModal"
-        :selectedCard="selectedCard"
+        :selected-card="selectedCard"
         :user="userData" />
         <div class="container">
             <h1 class="visually-hidden">Магазин Kolesa Team</h1>
@@ -39,8 +39,8 @@
                     <h2 class="visually-hidden">Каталог товаров</h2>
                     <div>
                         <ul class="products-list catalog__list js-products-list">
-                          <card v-for="(item, index) in filtered"
-                            :key="index"
+                          <card v-for="item in filtered"
+                            :key="item.id"
                             :item="item"
                             @clickOn="openModal" />
                         </ul>
@@ -64,23 +64,6 @@ import hotButtons from './components/hot-buttons.vue';
 import pageFooter from './components/footer.vue';
 import axios from './axios';
 
-const img1 = require('./img/product-tshirt.jpg');
-const img2 = require('./img/product.jpg');
-const img3 = require('./img/beige-sweatshirt-min.jpg');
-const img4 = require('./img/beige-sweatshirt.jpg');
-const img5 = require('./img/black-sweatshirt.jpg');
-const img6 = require('./img/gray-sweatshirt.jpg');
-const img7 = require('./img/gray-sweatshirt-min.jpg');
-
-const img8 = require('./img/bottle.jpg');
-const img9 = require('./img/bottle-min.jpg');
-const img10 = require('./img/socks.jpg');
-const img11 = require('./img/socks-min.jpg');
-const img12 = require('./img/gray-backpack.jpg');
-const img13 = require('./img/gray-backpack-min.jpg');
-const img14 = require('./img/blue-backpack.jpg');
-const img15 = require('./img/blue-backpack-min.jpg');
-
 export default {
   name: 'App',
   components: {
@@ -97,143 +80,9 @@ export default {
     return {
       selected: 'all',
       close: false,
-      userData: {
-        name: '',
-        score: 0,
-        avatarUrl: '',
-      },
-      clothes: [
-        {
-          id: 1,
-          title: 'Футболка "Эволюционируй или сдохни"',
-          price: 220,
-          isNew: false,
-          img: img1,
-          sizes: 'S/M/L',
-          details: 'Брендированная ыутболка от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%',
-        },
-        {
-          id: 2,
-          title: 'Детский свитшот QR, чёрный',
-          price: 320,
-          isNew: true,
-          img: img2,
-          sizes: 'S/M/L',
-          details: 'Стильный свитшот для ребёнка сотрудника компании',
-        },
-        {
-          id: 3,
-          title: 'Свитшот оверсайз бежевый',
-          price: 520,
-          isNew: false,
-          img: img4,
-          sizes: 'S/M/L',
-          details: 'Брендированный свитшот от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%',
-        },
-        {
-          id: 4,
-          title: 'Свитшот оверсайз бежевый, без логотипа',
-          price: 450,
-          isNew: false,
-          img: img3,
-          sizes: 'S/M/L',
-          details: 'Минималистичный свитшот. Материал: Хлопок 80%, Вискоза 20%',
-        },
-        {
-          id: 5,
-          title: 'Свитшот оверсайз чёрный',
-          price: 720,
-          isNew: true,
-          img: img5,
-          sizes: 'S/M/L',
-          details: 'Брендированный свитшот от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%',
-        },
-        {
-          id: 6,
-          title: 'Свитшот оверсайз серый',
-          price: 520,
-          isNew: false,
-          img: img6,
-          sizes: 'S/M/L',
-          details: 'Брендированный свитшот от Qazaq Republic. Материал: Хлопок 80%, Вискоза 20%',
-        },
-        {
-          id: 7,
-          title: 'Свитшот оверсайз серый, без логотипа',
-          price: 450,
-          isNew: false,
-          img: img7,
-          sizes: 'S/M/L',
-          details: 'Минималистичный свитшот. Материал: Хлопок 80%, Вискоза 20%',
-        },
-      ],
-      accessories: [
-        {
-          id: 8,
-          title: 'Бутылка для воды',
-          price: 100,
-          isNew: true,
-          img: img8,
-          sizes: '1л/1.5л',
-        },
-        {
-          id: 9,
-          title: 'Бутылка для воды обычная',
-          price: 80,
-          isNew: false,
-          img: img9,
-          sizes: '1л/1.5л',
-        },
-        {
-          id: 10,
-          title: 'Носки с сердечками',
-          price: 120,
-          isNew: true,
-          img: img10,
-          sizes: '35-42',
-          details: 'Мимимишные носки с сердечками и логотипом Kolesa Teams',
-        },
-        {
-          id: 11,
-          title: 'Носки обычные',
-          price: 50,
-          isNew: false,
-          img: img11,
-          sizes: '35-42',
-        },
-        {
-          id: 12,
-          title: 'Рюкзак серый',
-          price: 550,
-          isNew: false,
-          img: img12,
-          sizes: '30см на 41см',
-        },
-        {
-          id: 13,
-          title: 'Рюкзак серый минималистичный',
-          price: 550,
-          isNew: false,
-          img: img13,
-          sizes: '30см на 41см',
-        },
-        {
-          id: 14,
-          title: 'Рюкзак синий',
-          price: 500,
-          isNew: false,
-          img: img14,
-          sizes: '30см на 41см',
-        },
-        {
-          id: 15,
-          title: 'Рюкзак синий минималистичный',
-          price: 560,
-          isNew: false,
-          img: img15,
-          sizes: '30см на 41см',
-        },
-      ],
+      userData: {},
+      clothes: [],
+      accessories: [],
       selectedCard: '',
     };
   },
