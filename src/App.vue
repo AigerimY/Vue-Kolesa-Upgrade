@@ -130,10 +130,16 @@ export default {
     axios.get('templates/-_RLsEGjof6i/data')
       .then((response) => {
         this.clothes = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
       });
     axios.get('templates/q3OPxRyEcPvP/data')
       .then((response) => {
         this.accessories = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
       });
   },
 };

@@ -33,6 +33,9 @@ export default {
       .then((response) => {
         this.user = response.data;
         this.$emit('load', this.user);
+      })
+      .catch((error) => {
+        console.error(error);
       });
   },
 };
