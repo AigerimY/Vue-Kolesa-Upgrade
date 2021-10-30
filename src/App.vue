@@ -1,7 +1,7 @@
 <template>
   <div>
     <modal
-      v-if="open && close"
+      v-if="open"
       @click="closeModal"
       :selected-card="selectedCard"
       :user="userData"
@@ -81,7 +81,7 @@ export default {
   data() {
     return {
       selected: 'all',
-      close: false,
+      isOpen: false,
       userData: {},
       clothes: [],
       accessories: [],
@@ -97,12 +97,11 @@ export default {
     },
     openModal(selectedProduct) {
       this.selectedCard = selectedProduct;
-      this.close = true;
+      this.isOpen = true;
       return this.selectedCard;
     },
-    closeModal(close) {
-      this.close = false;
-      return close;
+    closeModal() {
+      this.isOpen = false;
     },
     readUser(userData) {
       this.userData = userData;
@@ -120,7 +119,7 @@ export default {
       return this.clothes.concat(this.accessories).sort((a, b) => b.isNew - a.isNew);
     },
     open() {
-      if (this.selectedCard) {
+      if (this.isOpen) {
         return true;
       }
       return false;
