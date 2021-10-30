@@ -15,17 +15,11 @@
 <script>
 import axios from '../axios';
 
-const userAvatar = require('../img/avatar.jpg');
-
 export default {
   name: 'user-block',
   data() {
     return {
-      user: {
-        name: 'Морти',
-        score: 200,
-        avatarUrl: userAvatar,
-      },
+      user: Object,
     };
   },
   mounted() {
