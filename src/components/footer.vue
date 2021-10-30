@@ -37,7 +37,7 @@ const youtubeIcon = require('../img/icon-youtube.svg');
 const vkIcon = require('../img/icon-vk.svg');
 
 export default {
-  name: 'footer',
+  name: 'page-footer',
   data() {
     return {
       links: [
