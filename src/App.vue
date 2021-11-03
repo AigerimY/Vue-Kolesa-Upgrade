@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <div class="container">
       <h1 class="visually-hidden">Магазин Kolesa Team</h1>
       <div class="page-navigation">
@@ -58,4 +58,11 @@ export default {
 
 <style lang="scss">
     @import './scss/style.scss';
+    .main-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
 </style>

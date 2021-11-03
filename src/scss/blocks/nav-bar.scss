@@ -37,19 +37,19 @@
             color: #2063aa;
         }
     }
+}
 
-    &__item--current a {
-        font-weight: 600;
-        position: relative;
+li .nav-list__item--current {
+    font-weight: 600;
+    position: relative;
 
-        &::before {
-            content: '';
-            position: absolute;
-            border-radius: 10px;
-            border: 2px solid $f-blue;
-            background-color: $f-blue;
-            height: 32px;
-            left: -12px;
-        }
+    &::before {
+        content: '';
+        position: absolute;
+        border-radius: 10px;
+        border: 2px solid $f-blue;
+        background-color: $f-blue;
+        height: 32px;
+        left: -12px;
     }
 }
