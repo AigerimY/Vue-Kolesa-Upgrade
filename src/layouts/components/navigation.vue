@@ -6,7 +6,13 @@
         :key="link.title"
         class="nav-list__item"
       >
-        <a :href="link.href">{{ link.title }}</a>
+        <router-link
+          :to="link.href"
+          exact
+          active-class="nav-list__item--current"
+        >
+          {{ link.title }}
+        </router-link>
       </li>
     </ul>
   </nav>
@@ -18,9 +24,9 @@ export default {
   data() {
     return {
       links: [
-        { title: 'Оргсхема', href: '#' },
+        { title: 'Оргсхема', href: '/' },
         { title: 'Kolesa Team', href: '#' },
-        { title: 'Kolesa Shop', href: '#' },
+        { title: 'Kolesa Shop', href: '/shop' },
         { title: 'Картина компании', href: '#' },
         { title: 'Новости', href: '#' },
         { title: 'Education', href: '#' },
