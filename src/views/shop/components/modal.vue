@@ -57,7 +57,7 @@
                       <p>{{ user.score}} баллов</p>
                   </div>
                   <img
-                      src="../img/shoppingBags.png"
+                      src="@/img/shoppingBags.png"
                       width="40"
                       height="40"
                       alt="Шопинг эмоджи">
