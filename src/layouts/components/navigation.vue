@@ -8,7 +8,7 @@
       >
         <router-link
           :to="link.href"
-          exact
+          :exact="link.isExact"
           active-class="nav-list__item--current"
         >
           {{ link.title }}
@@ -24,15 +24,15 @@ export default {
   data() {
     return {
       links: [
-        { title: 'Оргсхема', href: '/' },
-        { title: 'Kolesa Team', href: '#' },
-        { title: 'Kolesa Shop', href: '/shop' },
-        { title: 'Картина компании', href: '#' },
-        { title: 'Новости', href: '#' },
-        { title: 'Education', href: '#' },
-        { title: 'Guidelines', href: '#' },
-        { title: 'Библиотека', href: '#' },
-        { title: 'FAQ', href: '#' },
+        { title: 'Оргсхема', href: '#', isExact: true },
+        { title: 'Kolesa Team', href: '#', isExact: true },
+        { title: 'Kolesa Shop', href: '/shop', isExact: false },
+        { title: 'Картина компании', href: '#', isExact: true },
+        { title: 'Новости', href: '#', isExact: true },
+        { title: 'Education', href: '#', isExact: true },
+        { title: 'Guidelines', href: '#', isExact: true },
+        { title: 'Библиотека', href: '#', isExact: true },
+        { title: 'FAQ', href: '#', isExact: true },
       ],
     };
   },
