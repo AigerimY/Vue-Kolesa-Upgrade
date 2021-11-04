@@ -48,8 +48,9 @@
     min-width: 400px;
 
     &__button {
-        width: 134px;
+        width: auto;
         height: 36px;
+        padding: 0 24px;
     }
 
     &__cost {
