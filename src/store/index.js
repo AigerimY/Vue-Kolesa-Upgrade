@@ -26,5 +26,11 @@ export default new Vuex.Store({
         commit('updateUserData', data);
       });
     },
+    getClothes() {
+      return axios.get('templates/-_RLsEGjof6i/data');
+    },
+    getAccessories() {
+      return axios.get('templates/q3OPxRyEcPvP/data');
+    },
   },
 });

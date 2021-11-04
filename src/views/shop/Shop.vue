@@ -38,7 +38,7 @@ import switchCategories from './components/switchCategories.vue';
 import card from './components/card.vue';
 import modal from './components/modal.vue';
 import hotButtons from './components/hot-buttons.vue';
-import axios from '@/axios';
+// import axios from '@/axios';
 
 export default {
   name: 'Shop',
@@ -57,21 +57,15 @@ export default {
       selectedCard: '',
     };
   },
-  methods: {
-    choosenCategory(selectedCategory) {
-      this.selected = selectedCategory;
-      this.clothes.sort((a, b) => b.isNew - a.isNew);
-      this.accessories.sort((a, b) => b.isNew - a.isNew);
-      return this.selected;
-    },
-    openModal(selectedProduct) {
-      this.selectedCard = selectedProduct;
-      this.isOpen = true;
-      return this.selectedCard;
-    },
-    closeModal() {
-      this.isOpen = false;
-    },
+  mounted() {
+    this.$store.dispatch('getClothes').then((response) => {
+      this.clothes = response.data;
+      console.log(this.clothes);
+    });
+    this.$store.dispatch('getAccessories').then((response) => {
+      this.accessories = response.data;
+      console.log(this.accessories);
+    });
   },
   computed: {
     filtered() {
@@ -90,21 +84,21 @@ export default {
       return false;
     },
   },
-  mounted() {
-    axios.get('templates/-_RLsEGjof6i/data')
-      .then((response) => {
-        this.clothes = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    axios.get('templates/q3OPxRyEcPvP/data')
-      .then((response) => {
-        this.accessories = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  methods: {
+    choosenCategory(selectedCategory) {
+      this.selected = selectedCategory;
+      this.clothes.sort((a, b) => b.isNew - a.isNew);
+      this.accessories.sort((a, b) => b.isNew - a.isNew);
+      return this.selected;
+    },
+    openModal(selectedProduct) {
+      this.selectedCard = selectedProduct;
+      this.isOpen = true;
+      return this.selectedCard;
+    },
+    closeModal() {
+      this.isOpen = false;
+    },
   },
 };
 </script>
