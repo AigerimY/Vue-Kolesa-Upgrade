@@ -4,7 +4,6 @@
     v-if="open"
     @click="closeModal"
     :selected-card="selectedCard"
-    :user="userData"
   />
   <section class="promo">
     <h2 class="visually-hidden">Промо акция</h2>
@@ -43,9 +42,6 @@ import axios from '@/axios';
 
 export default {
   name: 'Shop',
-  props: {
-    userData: Object,
-  },
   components: {
     switchCategories,
     card,

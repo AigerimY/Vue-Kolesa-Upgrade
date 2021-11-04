@@ -16,12 +16,9 @@
         <section class="content__header">
           <h2 class="visually-hidden">Данные пользователя</h2>
           <search />
-          <user @load="readUser" />
+          <user/>
         </section>
-        <router-view
-          :user-data="userData"
-          @load="readUser"
-        ></router-view>
+        <router-view></router-view>
       </div>
     </div>
     <pageFooter />
@@ -42,16 +39,6 @@ export default {
     user,
     navigation,
     pageFooter,
-  },
-  data() {
-    return {
-      userData: {},
-    };
-  },
-  methods: {
-    readUser(userData) {
-      this.userData = userData;
-    },
   },
 };
 </script>
