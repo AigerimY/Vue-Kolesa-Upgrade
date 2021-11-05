@@ -38,7 +38,6 @@ import switchCategories from './components/switchCategories.vue';
 import card from './components/card.vue';
 import modal from './components/modal.vue';
 import hotButtons from './components/hot-buttons.vue';
-// import axios from '@/axios';
 
 export default {
   name: 'Shop',
@@ -60,11 +59,9 @@ export default {
   mounted() {
     this.$store.dispatch('getClothes').then((response) => {
       this.clothes = response.data;
-      console.log(this.clothes);
     });
     this.$store.dispatch('getAccessories').then((response) => {
       this.accessories = response.data;
-      console.log(this.accessories);
     });
   },
   computed: {
@@ -72,15 +69,18 @@ export default {
       if (this.selected === 'clothes') {
         return this.clothes;
       }
+
       if (this.selected === 'accessories') {
         return this.accessories;
       }
+
       return this.clothes.concat(this.accessories).sort((a, b) => b.isNew - a.isNew);
     },
     open() {
       if (this.isOpen) {
         return true;
       }
+
       return false;
     },
   },
@@ -89,11 +89,13 @@ export default {
       this.selected = selectedCategory;
       this.clothes.sort((a, b) => b.isNew - a.isNew);
       this.accessories.sort((a, b) => b.isNew - a.isNew);
+
       return this.selected;
     },
     openModal(selectedProduct) {
       this.selectedCard = selectedProduct;
       this.isOpen = true;
+
       return this.selectedCard;
     },
     closeModal() {
