@@ -105,7 +105,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 @import '@/scss/mixins.scss';
 @import '@/scss/variables.scss';
 
@@ -129,6 +128,7 @@ export default {
       box-shadow: 0px 2px 10px rgba(28, 24, 25, 0.1);
     }
   }
+
   div {
     display: flex;
     flex-direction: column;
@@ -136,43 +136,57 @@ export default {
     margin: 0;
     padding: 0;
   }
+
   h2 {
     @include font(20px, 32px, 600);
+
     margin: 0 0 16px;
   }
+
   h3 {
     @include font(16px, 24px, 600);
+
     margin: 16px 0 8px;
   }
+
   .points {
     display: block;
     width: max-content;
     background-color: #E9F2FB;
     padding: 0 8px;
-    @include font(13px, 20px, 400);
     border-radius: 4px;
     margin-bottom: 8px;
+
+    @include font(13px, 20px, 400);
   }
+
   p {
     margin: 0 0 20px;
   }
+
   .get-points-button {
     width: 100%;
     height: 44px;
+
     @include font(16px, 24px, 400);
+
     &:hover {
       background-color: #2574c9;
     }
   }
+
   .breadcrumb {
     list-style: none;
     margin: 24px 0;
     padding: 0;
+
     li {
       display: inline-block;
     }
+
     a, span {
       @include font(14px, 24px, 400);
+
       text-decoration: none;
       color: $f-blue;
     }
