@@ -24,7 +24,6 @@ export default {
   data() {
     return {
       links: [
-        { title: 'Оргсхема', href: '/', isExact: true },
         { title: 'Kolesa Shop', href: '/shop', isExact: false },
       ],
     };
