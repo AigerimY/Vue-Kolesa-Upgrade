@@ -159,9 +159,6 @@ export default {
       this.sayCloseModal();
     },
   },
-  mounted() {
-    this.$store.dispatch('updateUserData');
-  },
 };
 </script>
 
