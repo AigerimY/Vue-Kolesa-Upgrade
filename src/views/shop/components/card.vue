@@ -3,7 +3,6 @@
   <div class="item-photo">
     <img class="js-card-img"
       :src="item.mainImage"
-      width="330" height="330"
       :alt="item.title"
     >
     <span
