@@ -46,18 +46,26 @@
                     {{ selectedCard.price }} баллов
                   </p>
                   <button
+                    v-if="$store.state.userData.score > this.selectedCard.price"
                     @click="solvePoints"
                     class="product-info__button button">
                       Заказать
                   </button>
+                  <button
+                    v-else
+                    @click="askScore"
+                    class="product-info__button yellow button">
+                      Попросить {{ (this.selectedCard.price - $store.state.userData.score) }} баллов
+                  </button>
+
               </div>
               <div class="product-info__balance">
                   <div>
                       <span>Твой баланс:</span>
-                      <p>{{ user.score}} баллов</p>
+                      <p>{{ $store.state.userData.score}} баллов</p>
                   </div>
                   <img
-                      src="../img/shoppingBags.png"
+                      src="@/img/shoppingBags.png"
                       width="40"
                       height="40"
                       alt="Шопинг эмоджи">
@@ -140,11 +148,15 @@ export default {
       this.$emit('click', this.close);
     },
     solvePoints() {
-      if (this.user.score >= this.selectedCard.price) {
-        this.user.score -= this.selectedCard.price;
-        return this.user.score;
+      if (this.$store.state.userData.score >= this.selectedCard.price) {
+        this.$store.commit('withdrawCost', this.selectedCard.price);
+        alert('Заявка отправлена');
       }
-      return alert('У вас недостаточно средств');
+      return this.$store.state.userData.score;
+    },
+    askScore() {
+      alert('Заявка отправлена');
+      this.sayCloseModal();
     },
   },
 };
@@ -154,5 +166,9 @@ export default {
   .color {
     width: 23px;
     height: 24px;
+  }
+  .yellow {
+    background-color: #FFDD61;
+    color: #1C1819;
   }
 </style>

@@ -32,9 +32,9 @@
 
 <script>
 
-const instaIcon = require('../img/icon-insta.svg');
-const youtubeIcon = require('../img/icon-youtube.svg');
-const vkIcon = require('../img/icon-vk.svg');
+const instaIcon = require('@/img/icon-insta.svg');
+const youtubeIcon = require('@/img/icon-youtube.svg');
+const vkIcon = require('@/img/icon-vk.svg');
 
 export default {
   name: 'page-footer',

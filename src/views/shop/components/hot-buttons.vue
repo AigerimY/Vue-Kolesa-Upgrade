@@ -7,7 +7,7 @@
         v-for="link in links"
         :key="link.class"
       >
-        <a :href="link.href">{{ link.title }}</a>
+        <router-link :to="link.href">{{ link.title }}</router-link>
       </li>
     </ul>
   </div>
@@ -20,7 +20,7 @@ export default {
     return {
       links: [
         { title: 'Получить баллы', href: '#', class: 'get-points' },
-        { title: 'Как получить баллы', href: '#', class: 'how-to-get' },
+        { title: 'Как получить баллы', href: '/shop/how-to-get-score', class: 'how-to-get' },
         { title: 'Подарить баллы', href: '#', class: 'gift-points' },
       ],
     };
